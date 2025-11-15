@@ -6,6 +6,7 @@ import { Slider } from '@/components/ui/slider'
 import { Button } from '@/components/ui/button'
 import { ChaosMeter } from '@/components/chaos-meter'
 import { HistoryCard } from '@/components/history-card'
+import { AnimatedEmoji } from '@/components/animated-emoji'
 
 interface ChaosMetrics {
   lateForWork: number
@@ -105,8 +106,8 @@ export default function HotMessTracker() {
           <h1 className="text-5xl md:text-7xl font-black text-primary text-balance leading-tight">
             HOT MESS TRACKER
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground font-medium">
-            Self-report your chaos level. We won't judge. (Much.) 😏
+          <p className="text-lg md:text-xl text-muted-foreground font-medium flex items-center justify-center gap-2">
+            Self-report your chaos level. We won't judge. (Much.) <AnimatedEmoji emoji="😏" size={24} />
           </p>
         </div>
         
@@ -127,8 +128,8 @@ export default function HotMessTracker() {
             {/* Transport Problems */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
-                  🚗 Transport Problems
+                <label className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <AnimatedEmoji emoji="🚗" size={24} /> Transport Problems
                 </label>
                 <span className="text-2xl font-black text-primary">
                   {metrics.lateForWork}%
@@ -146,8 +147,8 @@ export default function HotMessTracker() {
             {/* Meeting Conflict */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
-                  📅 Meeting Conflict
+                <label className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <AnimatedEmoji emoji="📅" size={24} /> Meeting Conflict
                 </label>
                 <span className="text-2xl font-black text-secondary">
                   {metrics.meetingConflict}%
@@ -165,8 +166,8 @@ export default function HotMessTracker() {
             {/* Deadline Missed */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
-                  ⏰ Deadline Missed
+                <label className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <AnimatedEmoji emoji="⏰" size={24} /> Deadline Missed
                 </label>
                 <span className="text-2xl font-black text-destructive">
                   {metrics.deadlineMissed}%
@@ -184,8 +185,8 @@ export default function HotMessTracker() {
             {/* Procrastination */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
-                  🛋️ Procrastination
+                <label className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <AnimatedEmoji emoji="🛋️" size={24} /> Procrastination
                 </label>
                 <span className="text-2xl font-black text-accent">
                   {metrics.procrastination}%
@@ -203,8 +204,8 @@ export default function HotMessTracker() {
             {/* Coffee Consumption */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
-                  ☕ Coffee Consumption
+                <label className="text-lg font-bold text-foreground flex items-center gap-2">
+                  <AnimatedEmoji emoji="☕" size={24} /> Coffee Consumption
                 </label>
                 <span className="text-2xl font-black text-primary">
                   {metrics.coffeeConsumption}%
@@ -224,17 +225,17 @@ export default function HotMessTracker() {
               <Button 
                 onClick={handleSave} 
                 size="lg"
-                className="flex-1 text-lg font-black"
+                className="flex-1 text-lg font-black flex items-center justify-center gap-2"
               >
-                Save My Mess 💾
+                Save My Mess <AnimatedEmoji emoji="💾" size={20} />
               </Button>
               <Button 
                 onClick={handleReset} 
                 variant="outline"
                 size="lg"
-                className="flex-1 text-lg font-black"
+                className="flex-1 text-lg font-black flex items-center justify-center gap-2"
               >
-                Reset 🔄
+                Reset <AnimatedEmoji emoji="🔄" size={20} />
               </Button>
             </div>
             

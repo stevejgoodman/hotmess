@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { AnimatedEmoji } from './animated-emoji'
 
 interface ChaosMeterProps {
   score: number
@@ -48,13 +49,18 @@ export function ChaosMeter({ score }: ChaosMeterProps) {
         <div className="text-center space-y-6">
           {/* Animated Emoji */}
           <div 
-            className="text-9xl transition-all duration-500 ease-out transform hover:scale-110"
+            className="flex justify-center items-center transition-all duration-500 ease-out transform hover:scale-110"
             style={{
               animation: score > 60 ? 'bounce 1s infinite' : 'none',
               transform: `rotate(${score > 80 ? Math.sin(Date.now() / 200) * 10 : 0}deg)`,
             }}
           >
-            {getEmoji()}
+            <AnimatedEmoji 
+              emoji={getEmoji()} 
+              size={144}
+              loop={true}
+              autoplay={true}
+            />
           </div>
           
           {/* Score Display */}
