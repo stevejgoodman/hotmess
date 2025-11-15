@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Hot Mess Tracker - Track Your Daily Chaos',
-  description: 'A fun self-report app for tracking your chaos level. Embrace the mess!',
+  title: 'Hot Mess Tracker - Track Your Daily Stuff',
+  description: 'A fun self-report app for tracking your chaos level. Try not to Embrace the mess!',
   generator: 'v0.app',
   icons: {
     icon: [
