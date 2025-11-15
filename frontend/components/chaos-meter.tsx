@@ -34,21 +34,13 @@ export function ChaosMeter({ score }: ChaosMeterProps) {
     return 'ABSOLUTE INFERNO'
   }
   
-  const getColor = () => {
-    if (score < 20) return 'from-accent to-accent/70'
-    if (score < 40) return 'from-accent to-primary/70'
-    if (score < 60) return 'from-primary to-secondary/70'
-    if (score < 80) return 'from-secondary to-destructive/70'
-    return 'from-destructive to-destructive/70'
-  }
-  
   return (
     <div className="relative">
-      <div className="p-8 bg-card rounded-3xl border-2 shadow-xl">
-        <div className="text-center space-y-6">
+      <div className="p-8 md:p-12 bg-card/30 backdrop-blur-sm rounded-lg border border-border/50">
+        <div className="text-center space-y-8">
           {/* Animated Emoji */}
           <div 
-            className="text-9xl transition-all duration-500 ease-out transform hover:scale-110"
+            className="text-8xl md:text-9xl transition-all duration-500 ease-out transform hover:scale-110"
             style={{
               animation: score > 60 ? 'bounce 1s infinite' : 'none',
               transform: `rotate(${score > 80 ? Math.sin(Date.now() / 200) * 10 : 0}deg)`,
@@ -58,19 +50,19 @@ export function ChaosMeter({ score }: ChaosMeterProps) {
           </div>
           
           {/* Score Display */}
-          <div className="space-y-2">
-            <div className="text-7xl md:text-8xl font-black bg-gradient-to-br from-primary via-secondary to-accent bg-clip-text text-transparent">
+          <div className="space-y-3">
+            <div className="text-6xl md:text-7xl lg:text-8xl font-light text-foreground tracking-wide" style={{ fontFamily: 'var(--font-serif)' }}>
               {displayScore}
             </div>
-            <div className="text-2xl md:text-3xl font-black text-foreground">
+            <div className="text-xl md:text-2xl font-light text-foreground/90 tracking-wide">
               {getMessage()}
             </div>
           </div>
           
           {/* Progress Bar */}
-          <div className="w-full h-6 bg-muted rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-muted/30 rounded-full overflow-hidden">
             <div 
-              className={`h-full bg-gradient-to-r ${getColor()} transition-all duration-500 ease-out`}
+              className="h-full bg-foreground/30 transition-all duration-500 ease-out"
               style={{ width: `${displayScore}%` }}
             />
           </div>
