@@ -12,6 +12,7 @@ interface ChaosMetrics {
   meetingConflict: number
   deadlineMissed: number
   procrastination: number
+  coffeeConsumption: number
 }
 
 interface ChaosEntry {
@@ -27,6 +28,7 @@ export default function HotMessTracker() {
     meetingConflict: 0,
     deadlineMissed: 0,
     procrastination: 0,
+    coffeeConsumption: 0,
   })
   
   const [history, setHistory] = useState<ChaosEntry[]>([])
@@ -43,7 +45,7 @@ export default function HotMessTracker() {
   
   // Calculate total chaos score (0-100)
   const chaosScore = Math.round(
-    (metrics.lateForWork + metrics.meetingConflict + metrics.deadlineMissed + metrics.procrastination) / 4
+    (metrics.lateForWork + metrics.meetingConflict + metrics.deadlineMissed + metrics.procrastination + metrics.coffeeConsumption) / 5
   )
   
   const motivationalMessages = [
@@ -90,6 +92,7 @@ export default function HotMessTracker() {
       meetingConflict: 0,
       deadlineMissed: 0,
       procrastination: 0,
+      coffeeConsumption: 0,
     })
     setShowMessage(false)
   }
@@ -121,11 +124,11 @@ export default function HotMessTracker() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-8 pt-6">
-            {/* Late for Work */}
+            {/* Transport Problems */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <label className="text-lg font-bold text-foreground">
-                  🏃‍♀️ Late for Work
+                  🚗 Transport Problems
                 </label>
                 <span className="text-2xl font-black text-primary">
                   {metrics.lateForWork}%
@@ -191,6 +194,25 @@ export default function HotMessTracker() {
               <Slider
                 value={[metrics.procrastination]}
                 onValueChange={(value) => setMetrics({ ...metrics, procrastination: value[0] })}
+                max={100}
+                step={1}
+                className="cursor-pointer"
+              />
+            </div>
+            
+            {/* Coffee Consumption */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <label className="text-lg font-bold text-foreground">
+                  ☕ Coffee Consumption
+                </label>
+                <span className="text-2xl font-black text-primary">
+                  {metrics.coffeeConsumption}%
+                </span>
+              </div>
+              <Slider
+                value={[metrics.coffeeConsumption]}
+                onValueChange={(value) => setMetrics({ ...metrics, coffeeConsumption: value[0] })}
                 max={100}
                 step={1}
                 className="cursor-pointer"
