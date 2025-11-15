@@ -1,3 +1,5 @@
+import { AnimatedEmoji } from './animated-emoji'
+
 interface ChaosMetrics {
   lateForWork: number
   meetingConflict: number
@@ -39,12 +41,12 @@ export function HistoryCard({ entry }: HistoryCardProps) {
         
         {/* Mini metrics */}
         <div className="px-4 py-2 bg-card/30 rounded-lg border border-border/20">
-          <div className="flex gap-3 text-xs font-light text-foreground/80">
-            <span>🚗{entry.metrics.lateForWork}</span>
-            <span>📅{entry.metrics.meetingConflict}</span>
-            <span>⏰{entry.metrics.deadlineMissed}</span>
-            <span>🛋️{entry.metrics.procrastination}</span>
-            <span>☕{entry.metrics.coffeeConsumption}</span>
+          <div className="flex gap-3 text-xs font-light text-foreground/80 items-center">
+            <span className="flex items-center gap-1"><AnimatedEmoji emoji="🚗" size={16} />{entry.metrics.lateForWork}</span>
+            <span className="flex items-center gap-1"><AnimatedEmoji emoji="📅" size={16} />{entry.metrics.meetingConflict}</span>
+            <span className="flex items-center gap-1"><AnimatedEmoji emoji="⏰" size={16} />{entry.metrics.deadlineMissed}</span>
+            <span className="flex items-center gap-1"><AnimatedEmoji emoji="🛋️" size={16} />{entry.metrics.procrastination}</span>
+            <span className="flex items-center gap-1"><AnimatedEmoji emoji="☕" size={16} />{entry.metrics.coffeeConsumption}</span>
           </div>
         </div>
       </div>
