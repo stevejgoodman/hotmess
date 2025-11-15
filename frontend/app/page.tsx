@@ -101,14 +101,14 @@ export default function HotMessTracker() {
   }
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-4 md:p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <div className="min-h-screen p-8 md:p-12 lg:p-16">
+      <div className="mx-auto max-w-6xl space-y-12 md:space-y-16">
         {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-5xl md:text-7xl font-black text-primary text-balance leading-tight">
+        <div className="space-y-4">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-normal text-foreground tracking-wider leading-none" style={{ fontFamily: 'var(--font-serif)' }}>
             HOT MESS TRACKER
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground font-medium">
+          <p className="text-xl md:text-2xl text-foreground/90 font-light max-w-2xl">
             Self-report your chaos level. We won't judge. (Much.) 😏
           </p>
         </div>
@@ -117,23 +117,23 @@ export default function HotMessTracker() {
         <ChaosMeter score={chaosScore} />
         
         {/* Sliders Card */}
-        <Card className="border-2 shadow-lg">
-          <CardHeader className="bg-primary/5">
-            <CardTitle className="text-2xl font-black text-primary">
+        <Card className="border border-border/50 bg-card/30 backdrop-blur-sm shadow-none">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-3xl md:text-4xl font-light text-foreground tracking-wide">
               Today's Chaos Levels
             </CardTitle>
-            <CardDescription className="text-base">
+            <CardDescription className="text-base md:text-lg text-foreground/70 font-light mt-2">
               Slide to confess your daily disasters
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-8 pt-6">
+          <CardContent className="space-y-10 pt-6">
             {/* Transport Problems */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
+                <label className="text-base md:text-lg font-light text-foreground/90 tracking-wide">
                   🚗 Transport Problems
                 </label>
-                <span className="text-2xl font-black text-primary">
+                <span className="text-2xl md:text-3xl font-light text-foreground">
                   {metrics.lateForWork}%
                 </span>
               </div>
@@ -147,12 +147,12 @@ export default function HotMessTracker() {
             </div>
             
             {/* Meeting Conflict */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
+                <label className="text-base md:text-lg font-light text-foreground/90 tracking-wide">
                   📅 Meeting Conflict
                 </label>
-                <span className="text-2xl font-black text-secondary">
+                <span className="text-2xl md:text-3xl font-light text-foreground">
                   {metrics.meetingConflict}%
                 </span>
               </div>
@@ -166,12 +166,12 @@ export default function HotMessTracker() {
             </div>
             
             {/* Deadline Missed */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
+                <label className="text-base md:text-lg font-light text-foreground/90 tracking-wide">
                   ⏰ Deadline Missed
                 </label>
-                <span className="text-2xl font-black text-destructive">
+                <span className="text-2xl md:text-3xl font-light text-foreground">
                   {metrics.deadlineMissed}%
                 </span>
               </div>
@@ -185,12 +185,12 @@ export default function HotMessTracker() {
             </div>
             
             {/* Procrastination */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
+                <label className="text-base md:text-lg font-light text-foreground/90 tracking-wide">
                   🛋️ Procrastination
                 </label>
-                <span className="text-2xl font-black text-accent">
+                <span className="text-2xl md:text-3xl font-light text-foreground">
                   {metrics.procrastination}%
                 </span>
               </div>
@@ -204,12 +204,12 @@ export default function HotMessTracker() {
             </div>
             
             {/* Coffee Consumption */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <label className="text-lg font-bold text-foreground">
+                <label className="text-base md:text-lg font-light text-foreground/90 tracking-wide">
                   ☕ Coffee Consumption
                 </label>
-                <span className="text-2xl font-black text-primary">
+                <span className="text-2xl md:text-3xl font-light text-foreground">
                   {metrics.coffeeConsumption}%
                 </span>
               </div>
@@ -242,19 +242,20 @@ export default function HotMessTracker() {
             </div>
             
             {/* Action Buttons */}
-            <div className="flex gap-3 pt-4">
+            <div className="flex gap-4 pt-6">
               <Button 
                 onClick={handleSave} 
                 size="lg"
-                className="flex-1 text-lg font-black"
+                variant="elegant"
+                className="flex-1 text-base md:text-lg font-light tracking-wide"
               >
                 Save My Mess 💾
               </Button>
               <Button 
                 onClick={handleReset} 
-                variant="outline"
+                variant="elegant"
                 size="lg"
-                className="flex-1 text-lg font-black"
+                className="flex-1 text-base md:text-lg font-light tracking-wide"
               >
                 Reset 🔄
               </Button>
@@ -262,8 +263,8 @@ export default function HotMessTracker() {
             
             {/* Motivational Message */}
             {showMessage && (
-              <div className="p-6 bg-primary/10 border-2 border-primary rounded-xl animate-in slide-in-from-top-4">
-                <p className="text-lg md:text-xl font-bold text-center text-primary text-balance">
+              <div className="p-6 bg-card/50 border border-border/50 rounded-lg backdrop-blur-sm">
+                <p className="text-lg md:text-xl font-light text-center text-foreground text-balance">
                   {currentMessage}
                 </p>
               </div>
@@ -273,12 +274,12 @@ export default function HotMessTracker() {
         
         {/* History */}
         {history.length > 0 && (
-          <Card className="border-2 shadow-lg">
-            <CardHeader className="bg-secondary/5">
-              <CardTitle className="text-2xl font-black text-secondary">
+          <Card className="border border-border/50 bg-card/30 backdrop-blur-sm shadow-none">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-3xl md:text-4xl font-light text-foreground tracking-wide">
                 Your Chaos History
               </CardTitle>
-              <CardDescription className="text-base">
+              <CardDescription className="text-base md:text-lg text-foreground/70 font-light mt-2">
                 A timeline of beautiful disasters
               </CardDescription>
             </CardHeader>
