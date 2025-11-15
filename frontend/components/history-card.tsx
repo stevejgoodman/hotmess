@@ -3,6 +3,7 @@ interface ChaosMetrics {
   meetingConflict: number
   deadlineMissed: number
   procrastination: number
+  coffeeConsumption: number
 }
 
 interface ChaosEntry {
@@ -53,10 +54,11 @@ export function HistoryCard({ entry }: HistoryCardProps) {
         {/* Mini metrics */}
         <div className={`px-3 py-2 ${getScoreBg(entry.score)} rounded-lg`}>
           <div className="flex gap-2 text-xs font-mono font-bold">
-            <span>🏃{entry.metrics.lateForWork}</span>
+            <span>🚗{entry.metrics.lateForWork}</span>
             <span>📅{entry.metrics.meetingConflict}</span>
             <span>⏰{entry.metrics.deadlineMissed}</span>
             <span>🛋️{entry.metrics.procrastination}</span>
+            <span>☕{entry.metrics.coffeeConsumption}</span>
           </div>
         </div>
       </div>
